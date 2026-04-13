@@ -6,8 +6,9 @@ A C++ library of mathematical utilities.
 
 | Feature | Header | Status |
 |---|---|---|
-| N-D Tensors | `include/tensor.hpp` | 🚧 In progress |
-| Quaternions | `include/quaternion.hpp` | 📋 Planned |
+| Geometry    | `include/Geometry/geometry.hpp`      | ✅ Stable      |
+| N-D Tensors | `include/Tensor/tensor.hpp`          | 📋 Planned     |
+| Quaternions | `include/Quaternion/quaternion.hpp`  | 📋 Planned     |
 
 > Status legend: ✅ Stable · 🚧 In progress · 📋 Planned
 
