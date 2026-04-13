@@ -1,11 +1,16 @@
 #include <type_traits>
 #include <array>
+#include <string>
+#include <vector>
 
 #include "catch2/catch_test_macros.hpp"
 
 #include "Geometry/geometry.hpp"
+#include "Geometry/geometry_concepts.hpp"
 
 namespace mh::math {
+
+	// Geometry class
 
 	TEST_CASE("Geometry::size() return correct total size", "[Geometry]") {
 		constexpr size_t N1 = 3;
@@ -37,6 +42,36 @@ namespace mh::math {
 
 		REQUIRE(std::is_same_v<type_test::geometry_array_type, array_type_test>);
 		REQUIRE(type_test::geometry() == array_type_test{ N1, N2, N3 });
+	}
+
+	// Geometry concepts
+
+	TEST_CASE("GeometryPolicy concept correctly validates types", "[Geometry] [Concept]") {
+
+		REQUIRE(GeometryPolicy<Geometry<3, 3>>);
+		REQUIRE_FALSE(GeometryPolicy<int>);
+		REQUIRE_FALSE(GeometryPolicy<std::array<size_t, 3>>);
+
+	}
+
+	TEST_CASE("_1D concept correctly validates types", "[Geometry] [Concept]") {
+
+		REQUIRE(_1D<Geometry<3>>);
+		REQUIRE_FALSE(_1D<Geometry<2, 2>>);
+		REQUIRE_FALSE(_1D<Geometry<2, 3, 4>>);
+		REQUIRE_FALSE(_1D<float>);
+		REQUIRE_FALSE(_1D<std::string>);
+
+	}
+
+	TEST_CASE("_2D concept correctly validates types", "[Geometry] [Concept]") {
+
+		REQUIRE(_2D<Geometry<4, 4>>);
+		REQUIRE_FALSE(_2D<Geometry<4>>);
+		REQUIRE_FALSE(_2D<Geometry<2, 2, 2>>);
+		REQUIRE_FALSE(_2D<bool>);
+		REQUIRE_FALSE(_2D<std::vector<size_t>>);
+
 	}
 
 }
