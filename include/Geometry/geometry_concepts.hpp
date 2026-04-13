@@ -1,5 +1,7 @@
 #pragma once
 
+#include "common.hpp"
+
 
 namespace mh::math {
 
@@ -23,6 +25,6 @@ namespace mh::math {
 	concept _2D = GeometryPolicy<T> && (T::rank() == 2);
 
 	template<class T>
-	concept UniformGeometry = true;
+	concept UniformGeometry = GeometryPolicy<T> && (T::rank() > 1) && (T::size() == power_of<typename T::size_type, T::geometry()[0], T::rank()>::value);
 
 }

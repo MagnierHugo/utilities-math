@@ -19,7 +19,7 @@ namespace mh::math {
 		}
 
 		static consteval inline size_type size() noexcept {
-			return FirstSize * (OtherSizes * ...);
+			return (FirstSize * ... * OtherSizes);
 		}
 
 		static consteval inline geometry_array_type geometry() noexcept {
