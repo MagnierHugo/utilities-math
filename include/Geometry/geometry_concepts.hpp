@@ -22,4 +22,7 @@ namespace mh::math {
 	template<class T>
 	concept _2D = GeometryPolicy<T> && (T::rank() == 2);
 
+	template<class T>
+	concept UniformGeometry = true;
+
 }

@@ -74,4 +74,16 @@ namespace mh::math {
 
 	}
 
+	TEST_CASE("UniformGeometry concept correctly validates types", "[Geometry] [Concept]") {
+
+		REQUIRE(UniformGeometry<Geometry<2, 2>>);
+		REQUIRE(UniformGeometry<Geometry<3, 3, 3>>);
+		REQUIRE(UniformGeometry<Geometry<4, 4, 4, 4>>);
+		REQUIRE_FALSE(UniformGeometry<Geometry<5>>);
+		REQUIRE_FALSE(UniformGeometry<Geometry<2, 3>>);
+		REQUIRE_FALSE(UniformGeometry<Geometry<2, 3, 4>>);
+		REQUIRE_FALSE(UniformGeometry<std::array<size_t, 4>>);
+
+	}
+
 }
