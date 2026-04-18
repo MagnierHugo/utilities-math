@@ -1,4 +1,6 @@
 #pragma once
+#ifndef MH_MATH_GEOMETRY_CONCEPTS_HPP
+#define MH_MATH_GEOMETRY_CONCEPTS_HPP
 
 #include "common.hpp"
 
@@ -28,3 +30,5 @@ namespace mh::math {
 	concept UniformGeometry = GeometryPolicy<T> && (T::rank() > 1) && (T::size() == power_of<typename T::size_type, T::geometry()[0], T::rank()>::value);
 
 }
+
+#endif // MH_MATH_GEOMETRY_CONCEPTS_HPP
