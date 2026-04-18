@@ -2,6 +2,8 @@
 
 #include <array>
 
+#include "common.hpp"
+
 
 namespace mh::math {
 
@@ -9,6 +11,10 @@ namespace mh::math {
 		size_t FirstSize,
 		size_t... OtherSizes
 	>
+	requires(
+		NonZero<size_t, FirstSize> &&
+		(NonZero<size_t, OtherSizes> && ...)
+	)
 	class Geometry {
 	public:
 		using size_type = size_t;
