@@ -40,7 +40,7 @@ namespace mh::math {
 		using type_test = Geometry<N1, N2, N3>;
 		using array_type_test = const std::array<size_t, 3>;
 
-		REQUIRE(std::is_same_v<type_test::geometry_array_type, array_type_test>);
+		REQUIRE(std::is_same_v<typename type_test::geometry_array_type, array_type_test>);
 		REQUIRE(type_test::geometry() == array_type_test{ N1, N2, N3 });
 	}
 
