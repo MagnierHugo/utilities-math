@@ -7,7 +7,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(Catch2)
 
-add_executable(tests test_math.cpp test_common.cpp test_geometry.cpp)
+add_executable(tests  "test_common.cpp" "test_geometry.cpp" "test_tensor.cpp")
 
 target_link_libraries(tests PRIVATE
     math

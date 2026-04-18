@@ -1,4 +1,6 @@
 #pragma once
+#ifndef MH_MATH_GEOMETRY_HPP
+#define MH_MATH_GEOMETRY_HPP
 
 #include <array>
 
@@ -34,3 +36,5 @@ namespace mh::math {
 	};
 
 }
+
+#endif // MH_MATH_GEOMETRY_HPP

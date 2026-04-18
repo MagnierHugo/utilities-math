@@ -1,4 +1,7 @@
 #pragma once
+#ifndef MH_MATH_COMMON_HPP
+#define MH_MATH_COMMON_HPP
+
 
 #include <type_traits>
 
@@ -42,3 +45,5 @@ namespace mh::math {
 	#pragma endregion
 
 }
+
+#endif // MH_MATH_COMMON_HPP
