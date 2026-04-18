@@ -18,13 +18,13 @@ namespace mh::math {
 		static_assert(Geometry::size() > 1, "Tensor can't be a scalar (need more than 1 element)");
 
 	public:
-		using value_type = void;
-		using geometry_type = void;
-		using size_type = void;
-		using geometry_array_type = void;
+		using value_type = T;
+		using geometry_type = Geometry;
+		using size_type = typename Geometry::size_type;
+		using geometry_array_type = typename Geometry::geometry_array_type;
 		
 	private:
-		std::array<int, 0> m_data;
+		std::array<value_type, geometry_type::size()> m_data;
 	};
 
 }
