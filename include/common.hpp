@@ -4,6 +4,7 @@
 
 
 #include <type_traits>
+#include <stdexcept>
 
 
 namespace mh::math {
@@ -43,6 +44,8 @@ namespace mh::math {
 	};
 
 	#pragma endregion
+
+#define UNIMPLMENTED { throw std::runtime_error("Function not implemented yet: " __FUNCTION__); }
 
 }
 
